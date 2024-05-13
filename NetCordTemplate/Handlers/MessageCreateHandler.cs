@@ -1,13 +1,14 @@
 ﻿using NetCord.Gateway;
 using NetCord.Hosting.Gateway;
 
-namespace NetCordTemplate.Handlers;
-
-[GatewayEvent(nameof(GatewayClient.MessageCreate))]
-internal partial class MessageCreateHandler(GatewayClient client, IServiceProvider services) : IGatewayEventHandler<Message>
+namespace NetCordTemplate.Handlers
 {
-    public ValueTask HandleAsync(Message message)
+    [GatewayEvent(nameof(GatewayClient.MessageCreate))]
+    internal class MessageCreateHandler(GatewayClient client, IServiceProvider services): IGatewayEventHandler<Message>
     {
-        return default;
+        public ValueTask HandleAsync(Message message)
+        {
+            return default;
+        }
     }
 }

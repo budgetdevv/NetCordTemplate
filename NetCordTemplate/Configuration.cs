@@ -1,8 +1,9 @@
-﻿namespace NetCordTemplate;
-
+﻿namespace NetCordTemplate
+{
 #nullable disable
 
-public class Configuration
-{
+    public class Configuration
+    {
     
+    }
 }
