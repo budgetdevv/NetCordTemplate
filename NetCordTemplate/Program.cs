@@ -35,7 +35,7 @@ services
     .AddOptions<Configuration>()
     .BindConfiguration(string.Empty);
 
-await ICustomHostedService.RegisterServices(services);
+await ICustomService.RegisterServices(services);
 
 var host = builder.Build()
     .AddModules(typeof(Program).Assembly)

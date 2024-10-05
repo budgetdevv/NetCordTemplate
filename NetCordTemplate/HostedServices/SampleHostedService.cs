@@ -1,12 +1,13 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace NetCordTemplate.HostedServices
 {
-    public sealed class SampleHostedService: ICustomHostedService
+    public sealed class SampleHostedService: ICustomService, IHostedService
     {
         public static ValueTask Register(IServiceCollection services)
         {
-            services.AddSingleton<SampleHostedService>();
+            services.AddHostedService<SampleHostedService>();
             return ValueTask.CompletedTask;
         }
         

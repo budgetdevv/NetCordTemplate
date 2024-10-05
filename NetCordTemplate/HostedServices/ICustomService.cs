@@ -4,13 +4,13 @@ using Microsoft.Extensions.Hosting;
 
 namespace NetCordTemplate.HostedServices
 {
-    public interface ICustomHostedService: IHostedService
+    public interface ICustomService
     {
         public static abstract ValueTask Register(IServiceCollection services);
 
         public static async Task RegisterServices(IServiceCollection collection)
         {
-            var type = typeof(ICustomHostedService);
+            var type = typeof(ICustomService);
 
             var services = type.Assembly
                 .GetTypes()
