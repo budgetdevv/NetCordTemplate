@@ -2,7 +2,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace NetCordTemplate.HostedServices
 {
-    public class SampleHostedService: IHostedService
+    public sealed class SampleHostedService: IHostedService
     {
         public Task StartAsync(CancellationToken cancellationToken)
         {
