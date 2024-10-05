@@ -16,7 +16,9 @@ using NetCordTemplate.HostedServices;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-builder.Services
+var services = builder.Services;
+
+services
     .AddDiscordGateway(options =>
     {
         options.Intents = GatewayIntents.All;
@@ -30,9 +32,10 @@ builder.Services
     .AddComponentInteractions<ModalInteraction, ModalInteractionContext>(OptionsHelper.ConfigureInteractionService)
     .AddHttpClient()
     .AddGatewayEventHandlers(typeof(Program).Assembly)
-    .AddHostedSingletonService<SampleHostedService>()
     .AddOptions<Configuration>()
     .BindConfiguration(string.Empty);
+
+await ICustomHostedService.RegisterServices(services);
 
 var host = builder.Build()
     .AddModules(typeof(Program).Assembly)
