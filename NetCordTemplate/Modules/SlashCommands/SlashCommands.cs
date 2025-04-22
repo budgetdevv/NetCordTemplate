@@ -5,10 +5,10 @@ using NetCord.Services.ApplicationCommands;
 
 namespace NetCordTemplate.Modules.SlashCommands
 {
-    public class SlashCommands(GatewayClient client) : ApplicationCommandModule<SlashCommandContext>
+    public class SlashCommands(GatewayClient client): ApplicationCommandModule<SlashCommandContext>
     {
         [SlashCommand("ping", "Get bot latency", DefaultGuildUserPermissions = Permissions.Administrator)]
-        public Task<InteractionCallback> RemoveReputationAsync()
+        public Task<InteractionCallback> Ping()
         {
             var latency = client.Latency;
         
